@@ -3,7 +3,7 @@ import { supabase } from '@/lib/supabase'
 import { useAuth } from '@/contexts/AuthContext'
 import type { FinancialRecordWithClient } from '@/types/database'
 import type { FinancialForm } from '@/lib/validators/schemas'
-import { startOfMonth, endOfMonth, startOfYear, endOfYear, format } from 'date-fns'
+import { startOfMonth, endOfMonth, startOfYear, endOfYear } from 'date-fns'
 import { getPaymentStatus } from '@/lib/utils'
 
 export function useFinancialRecords() {

@@ -52,7 +52,7 @@ export function DashboardPage() {
         <div className="grid gap-4 md:grid-cols-3">
           <DataList
             title="Próximos Vencimentos"
-            items={(stats?.upcomingObligations ?? []).map((o) => ({
+            items={(stats?.upcomingObligations ?? []).map((o: any) => ({
               id: o.id,
               primary: o.clients?.nome_fantasia || o.clients?.razao_social || 'Cliente',
               secondary: `${o.type} - ${o.description || 'Sem descrição'}`,
@@ -62,7 +62,7 @@ export function DashboardPage() {
           />
           <DataList
             title="Clientes com Pendências"
-            items={(stats?.clientsWithTasks ?? []).map((t) => ({
+            items={(stats?.clientsWithTasks ?? []).map((t: any) => ({
               id: t.id,
               primary: t.clients?.nome_fantasia || t.clients?.razao_social || 'Cliente',
               secondary: t.description,
@@ -73,7 +73,7 @@ export function DashboardPage() {
           />
           <DataList
             title="Últimos Documentos"
-            items={(stats?.recentDocuments ?? []).map((d) => ({
+            items={(stats?.recentDocuments ?? []).map((d: any) => ({
               id: d.id,
               primary: d.file_name,
               secondary: d.clients?.nome_fantasia || d.clients?.razao_social || 'Cliente',

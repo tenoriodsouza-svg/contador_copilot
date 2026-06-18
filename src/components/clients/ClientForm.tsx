@@ -31,7 +31,7 @@ export function ClientFormComponent({ client, onSubmit, onCancel, loading }: Cli
       endereco: client.endereco || '',
       data_inicio_contrato: client.data_inicio_contrato || '',
       observacoes: client.observacoes || '',
-      ativo: client.ativo,
+      ativo: client.ativo ?? true,
     } : { ativo: true },
   })
 

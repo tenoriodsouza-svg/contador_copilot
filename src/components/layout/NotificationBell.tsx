@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import { Bell } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
@@ -14,7 +13,6 @@ import {
   useNotifications,
   useUnreadNotificationCount,
   useMarkNotificationRead,
-  useGenerateNotifications,
 } from '@/hooks/useNotifications'
 import { formatDate } from '@/lib/utils'
 
@@ -22,7 +20,7 @@ export function NotificationBell() {
   const { data: notifications = [] } = useNotifications()
   const unreadCount = useUnreadNotificationCount()
   const markRead = useMarkNotificationRead()
-  const generateNotifications = useGenerateNotifications()
+  // const generateNotifications = useGenerateNotifications()
 
 // useEffect(() => {
 //   generateNotifications.mutate()
@@ -66,7 +64,9 @@ export function NotificationBell() {
                 )}
               </div>
               <span className="text-xs text-muted-foreground">{notification.message}</span>
-              <span className="text-xs text-muted-foreground">{formatDate(notification.created_at)}</span>
+              <span className="text-xs text-muted-foreground">{notification.created_at
+  ? formatDate(notification.created_at)
+  : '-'}</span>
             </DropdownMenuItem>
           ))
         )}

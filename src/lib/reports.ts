@@ -14,7 +14,14 @@ function addHeader(doc: jsPDF, title: string) {
   doc.text(`Gerado em: ${formatDate(new Date())}`, 14, 38)
 }
 
-export function generateClientsReport(clients: { razao_social: string; cnpj: string | null; regime_tributario: string | null; ativo: boolean }[]) {
+export function generateClientsReport(
+  clients: {
+    razao_social: string;
+    cnpj: string | null;
+    regime_tributario: string | null;
+    ativo: boolean | null
+  }[]
+) {
   const doc = new jsPDF()
   addHeader(doc, 'Relatório de Clientes')
 
@@ -34,7 +41,7 @@ export function generateClientsReport(clients: { razao_social: string; cnpj: str
   doc.save('relatorio-clientes.pdf')
 }
 
-export function generateTasksReport(tasks: { clients?: { razao_social: string }; description: string; due_date: string; priority: string; status: string }[]) {
+export function generateTasksReport(tasks: { clients?: { razao_social: string | null }; description: string; due_date: string; priority: string; status: string }[]) {
   const doc = new jsPDF()
   addHeader(doc, 'Relatório de Pendências')
 
@@ -55,7 +62,7 @@ export function generateTasksReport(tasks: { clients?: { razao_social: string };
   doc.save('relatorio-pendencias.pdf')
 }
 
-export function generateObligationsReport(obligations: { clients?: { razao_social: string }; type: string; description: string | null; due_date: string }[]) {
+export function generateObligationsReport(obligations: { clients?: { razao_social: string | null }; type: string; description: string | null; due_date: string }[]) {
   const doc = new jsPDF()
   addHeader(doc, 'Relatório de Obrigações')
 
@@ -75,7 +82,7 @@ export function generateObligationsReport(obligations: { clients?: { razao_socia
   doc.save('relatorio-obrigacoes.pdf')
 }
 
-export function generateFinancialReport(records: { clients?: { razao_social: string }; monthly_fee: number; billing_date: string; payment_status: string }[]) {
+export function generateFinancialReport(records: { clients?: { razao_social: string | null }; monthly_fee: number; billing_date: string; payment_status: string }[]) {
   const doc = new jsPDF()
   addHeader(doc, 'Relatório Financeiro')
 
@@ -95,7 +102,7 @@ export function generateFinancialReport(records: { clients?: { razao_social: str
   doc.save('relatorio-financeiro.pdf')
 }
 
-export function generateCertificatesReport(obligations: { clients?: { razao_social: string }; description: string | null; due_date: string }[]) {
+export function generateCertificatesReport(obligations: { clients?: { razao_social: string | null }; description: string | null; due_date: string }[]) {
   const doc = new jsPDF()
   addHeader(doc, 'Relatório de Certificados Digitais')
 

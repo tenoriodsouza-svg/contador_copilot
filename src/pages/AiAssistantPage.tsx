@@ -22,7 +22,7 @@ export function AiAssistantPage() {
   }, [messages])
 
   const handleNewChat = async () => {
-    const chat = await createChat.mutateAsync()
+    const chat = await createChat.mutateAsync(undefined)
     setActiveChatId(chat.id)
   }
 
@@ -31,7 +31,7 @@ export function AiAssistantPage() {
 
     let chatId = activeChatId
     if (!chatId) {
-      const chat = await createChat.mutateAsync()
+      const chat = await createChat.mutateAsync(undefined)
       chatId = chat.id
       setActiveChatId(chatId)
     }

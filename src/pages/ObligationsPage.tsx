@@ -31,9 +31,12 @@ export function ObligationsPage() {
   const updateObligation = useUpdateObligation()
   const deleteObligation = useDeleteObligation()
 
-  const { register, handleSubmit, setValue, watch, reset, formState: { errors } } = useForm<ObligationForm>({
+  const { register, handleSubmit, setValue, watch, reset } = useForm<ObligationForm>({
     resolver: zodResolver(obligationSchema),
-    defaultValues: { type: 'DAS', status: 'pendente' },
+    defaultValues: {
+      type: 'DAS',
+      status: 'pendente',
+    },
   })
 
   const openCreate = () => {

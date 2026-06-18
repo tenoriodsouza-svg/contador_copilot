@@ -123,7 +123,11 @@ export function DocumentsPage() {
                     <TableCell className="font-medium">{doc.file_name}</TableCell>
                     <TableCell>{doc.clients?.nome_fantasia || doc.clients?.razao_social}</TableCell>
                     <TableCell>{doc.category}</TableCell>
-                    <TableCell>{formatDate(doc.uploaded_at)}</TableCell>
+                    <TableCell>
+  {doc.uploaded_at
+    ? formatDate(doc.uploaded_at)
+    : '-'}
+</TableCell>
                     <TableCell className="text-right">
                       {doc.mime_type === 'application/pdf' && (
                         <Button variant="ghost" size="icon" onClick={() => setSummaryDoc(doc)}>

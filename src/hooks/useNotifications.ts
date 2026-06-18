@@ -6,7 +6,7 @@ import type { Notification } from '@/types/database'
 
 export function useNotifications() {
   const { user } = useAuth()
-  const queryClient = useQueryClient()
+
 
   const query = useQuery({
     queryKey: ['notifications', user?.id],
